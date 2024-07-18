@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <form [formGroup]="transactionForm" (ngSubmit)="addTransaction()" class="card p-4">
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <input id="description" formControlName="description" class="form-control"/>
+    </div>
+    <div class="mb-3">
+      <label for="amount" class="form-label">Amount:</label>
+      <input id="amount" formControlName="amount" type="number" class="form-control"/>
+    </div>
+    <div class="mb-3">
+      <label for="date" class="form-label">Date:</label>
+      <input id="date" formControlName="date" type="date" class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Transaction</button>
+  </form>
+  <div class="transaction-list mt-4 mb-4">
+    <h3>Transactions</h3>
+    <ul class="list-group">
+      <li *ngFor="let transaction of transactions" class="list-group-item">
+        {{ transaction.description }} - {{ transaction.amount }} - {{ transaction.date }}
+      </li>
+    </ul>
+  </div>
+</div>
